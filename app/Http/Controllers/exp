@@ -1,0 +1,26 @@
+user_info table  
+id  user_id  address  city  
+1    2        xxx      chennai
+2    1        yyy      mumbai
+3    3        zzz      calcutta  
+
+DB::table('users')->leftjoin('user_info',users.id,user_info.user_id)
+                  ->select('users.name','users.ph_num','users.email',user_info.address,user_info.city)
+                  ->where('users.name',b)
+                  ->get();
+
+
+
+$rules = array (
+    'name' => 'required',
+    'email' => 'required | unique | email',
+     'mob_num' => 'required | number',
+     'amount' =>'requiredIf' | 
+
+)
+
+$validate = Validation::make($request->all(),$rules);
+
+if($validate ->fails)
+$user = $request->all();
+Users::create($user);
